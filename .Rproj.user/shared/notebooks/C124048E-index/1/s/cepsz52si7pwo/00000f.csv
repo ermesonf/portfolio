@@ -1,0 +1,4 @@
+"0","## Bibliotecas"
+"0","pacman::p_load(leaflet,sf,rgdal,dplyr,stringr,"
+"0","               plotly,mapview,webshot,sp,RColorBrewer,"
+"0","               tidyr)"

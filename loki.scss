@@ -1,0 +1,47 @@
+// Variáveis de cores
+/*-- scss:defaults --*/
+$loki-green: #0f7c0f;
+$loki-gold: #d4af37;
+$loki-black: #000000;
+$navbar-bg: #0f7c0f;
+
+// Personalizando o Bootstrap com as cores do Loki
+/*-- scss:rules --*/
+$theme-colors: (
+  "primary": $loki-green,
+  "secondary": $loki-gold,
+  "dark": $loki-black,
+);
+
+// Aplicando o tema do Loki ao corpo do site
+body {
+  background-color: $loki-black;
+  color: $loki-gold;
+}
+
+// Personalizando a navbar
+.navbar {
+  background-color: $loki-green;
+}
+
+// Personalizando os links
+a {
+  color: $loki-gold;
+
+  &:hover {
+    color: $loki-green;
+  }
+}
+
+// Personalizando os botões
+.btn-primary {
+  background-color: $loki-green;
+  border-color: $loki-gold;
+  color: $loki-gold;
+
+  &:hover {
+    background-color: $loki-gold;
+    border-color: $loki-green;
+    color: $loki-green;
+  }
+}

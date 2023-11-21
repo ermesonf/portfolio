@@ -1,0 +1,32 @@
+{
+  "index.qmd": {
+    "index.html": "26a46829"
+  },
+  "about.qmd": {
+    "about.html": "cff377f0"
+  },
+  "posts/post-with-code/index.qmd": {
+    "index.html": "fe68400e"
+  },
+  "posts/welcome/index.qmd": {
+    "index.html": "f45f82a6"
+  },
+  "resumo.qmd": {
+    "resumo.html": "fa282df6"
+  },
+  "resume.qmd": {
+    "resume.html": "9ee5b88f"
+  },
+  "resume2.qmd": {
+    "resume2.html": "3219402f"
+  },
+  "projects.qmd": {
+    "projects.html": "85328f89"
+  },
+  "posts/post-with-plot/index.qmd": {
+    "index.html": "f1aae8bc"
+  },
+  "posts/post-with-plot/lml_belem_bairro_ilhas_simp.qmd": {
+    "lml_belem_bairro_ilhas_simp.html": "c7cd14c6"
+  }
+}

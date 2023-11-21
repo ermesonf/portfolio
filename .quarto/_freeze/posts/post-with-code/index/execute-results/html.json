@@ -1,0 +1,14 @@
+{
+  "hash": "3dd710e078a0c50db83a464054722bf8",
+  "result": {
+    "markdown": "---\ntitle: \"Dashboard's\"\ncategories: [news, code, analysis]\nimage: \"covid_painel.jpg\"\n---\n\n\nETL de dados.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n12 * 12\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 144\n```\n:::\n:::\n\n\n<iframe width=\"600\" height=\"920\" src=\"https://lookerstudio.google.com/embed/reporting/bf1eb69c-c1ee-47a7-b798-67b5a046e9f0/page/TOVmC\" frameborder=\"0\" style=\"border:0\" allowfullscreen>\n\n</iframe>\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

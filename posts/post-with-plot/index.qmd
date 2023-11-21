@@ -1,0 +1,219 @@
+---
+title: "Gráficos"
+categories: [code, analysis, plot]
+image: "image.jpg"
+---
+
+This is a post with executable code.
+
+```{r}
+## Bibliotecas
+pacman::p_load(leaflet,sf,rgdal,dplyr,stringr,
+               plotly,mapview,webshot,sp,RColorBrewer,
+               tidyr)
+
+# Mapa de casos de srag_2 por bairros ---------------------------------------
+
+## Bibliotecas
+pacman::p_load(leaflet,sf,rgdal,dplyr,stringr,
+               plotly,mapview,webshot,sp,RColorBrewer,
+               tidyr)
+
+
+srag_2023 <- rio::import('SRAGHOSPITALIZADO2026017_00.dbf')
+srag_2022 <- rio::import('SRAGHOSPITALIZADO2026018_00.dbf')
+
+# srag_2 <- rbind(banco1, banco2, banco3)
+srag <- rbind(srag_2022, srag_2023)
+
+# tratar bairros
+srag2 <- srag |>
+  dplyr::mutate(NM_BAIRRO2 = str_to_sentence(NM_BAIRRO)) |>
+  dplyr::mutate(NM_BAIRRO3 = if_else(ID_MN_RESI == "BELEM",
+                                     case_when(
+                                       str_detect(NM_BAIRRO2, "Aero.*") ~ "Aeroporto",
+                                       str_detect(NM_BAIRRO2, ".*gua boa.*") ~ "Água Boa",
+                                       str_detect(NM_BAIRRO2, ".*lind.*") ~ "Águas Lindas",
+                                       str_detect(NM_BAIRRO2, ".*negra.*") ~ "Águas Negras",
+                                       str_detect(NM_BAIRRO2, ".*Agulha.*") ~ "Agulha",
+                                       str_detect(NM_BAIRRO2, "Antônio lemos") ~ "Antônio Lemos",
+                                       str_detect(NM_BAIRRO2, ".*Ariramb.*") ~ "Arirambá",
+                                       str_detect(NM_BAIRRO2, ".*Aurá.*") ~ "Aurá",
+                                       str_detect(NM_BAIRRO2, ".*do sol.*") ~ "Baía do Sol" ,
+                                       str_detect(NM_BAIRRO2, ".*Barreiro.*") ~ "Barreiro",
+                                       str_detect(NM_BAIRRO2, "Batista campos") ~ "Batista Campos",
+                                       str_detect(NM_BAIRRO2, ".*Bengu.*") ~ "Benguí",
+                                       str_detect(NM_BAIRRO2, "Bonfim") ~ "Bonfim",
+                                       str_detect(NM_BAIRRO2, "Brasilia|Brasília") ~ "Brasília",
+                                       str_detect(NM_BAIRRO2, "Cabanagem") ~ "Cabanagem",
+                                       str_detect(NM_BAIRRO2, "Campina") ~ "Campina",
+                                       str_detect(NM_BAIRRO2, ".*Campina de ico.*|.*Campina ico.*") ~ "Campina de Icoaraci",
+                                       str_detect(NM_BAIRRO2, "Canudos") ~ "Canudos",
+                                       str_detect(NM_BAIRRO2, ".*Carana.*") ~ "Carananduba",
+                                       str_detect(NM_BAIRRO2, ".*Carua.*") ~ "Caruara",
+                                       str_detect(NM_BAIRRO2, ".*Castanh.*") ~ "Castanheira",
+                                       str_detect(NM_BAIRRO2, ".*Chap.*") ~ "Chapéu Virado",
+                                       str_detect(NM_BAIRRO2, ".*velha.*") ~ "Cidade Velha",
+                                       str_detect(NM_BAIRRO2, ".*Condor.*") ~ "Condor",
+                                       str_detect(NM_BAIRRO2, ".*Coque.*") ~ "Coqueiro",
+                                       str_detect(NM_BAIRRO2, ".*Crema.*") ~ "Cremação",
+                                       str_detect(NM_BAIRRO2, ".*Cruz.*") ~ "Cruzeiro",
+                                       str_detect(NM_BAIRRO2, ".*utinga.*|.*Curio.*") ~ "Curió-Utinga",
+                                       str_detect(NM_BAIRRO2, ".*Farol.*") ~ "Farol",
+                                       str_detect(NM_BAIRRO2, "Fátima|Fatima")  ~ "Fátima",
+                                       str_detect(NM_BAIRRO2, ".*Guam.*") ~ "Guamá",
+                                       str_detect(NM_BAIRRO2, ".*Guanabara.*") ~ "Guanabara",
+                                       str_detect(NM_BAIRRO2, ".*Itaiteua.*") ~ "Itaiteua",
+                                       str_detect(NM_BAIRRO2, ".*Jurunas.*|.*Jorunas.*")  ~ "Jurunas",
+                                       str_detect(NM_BAIRRO2, ".*Mangueirão.*|.*Mangueirao.*")  ~ "Mangueirão",
+                                       str_detect(NM_BAIRRO2, ".*Mangueiras.*") ~ "Mangueiras",
+                                       str_detect(NM_BAIRRO2, ".*uera.*") ~ "Maracacuera",
+                                       str_detect(NM_BAIRRO2, ".*Maracajá.*|.*Maracaja.*") ~ "Maracajá",
+                                       str_detect(NM_BAIRRO2, ".*Maracanga.*") ~ "Maracangalha",
+                                       str_detect(NM_BAIRRO2, ".*Marah.*") ~ "Marahú",
+                                       str_detect(NM_BAIRRO2, ".*Maramb.*") ~ "Marambaia",
+                                       str_detect(NM_BAIRRO2, ".*Marco.*") ~ "Marco",
+                                       str_detect(NM_BAIRRO2, ".*Miramar.*") ~ "Miramar",
+                                       str_detect(NM_BAIRRO2, "Terra firme|Montese") ~ "Montese (Terra Firme)",
+                                       str_detect(NM_BAIRRO2, ".*Murubira.*") ~ "Murubira",
+                                       str_detect(NM_BAIRRO2, ".*Natal.*") ~ "Natal do Murubira",
+                                       str_detect(NM_BAIRRO2, ".*Nazar.*") ~ "Nazaré",
+                                       str_detect(NM_BAIRRO2, ".*Paracu.*") ~ "Paracuri",
+                                       str_detect(NM_BAIRRO2, ".*Paraíso.*|.*Paraiso.*") ~ "Paraíso",
+                                       str_detect(NM_BAIRRO2, ".*guaj.*") ~ "Parque Guajará",
+                                       str_detect(NM_BAIRRO2, ".*verde.*") ~ "Parque Verde",
+                                       str_detect(NM_BAIRRO2, ".*Pedreira.*") ~ "Pedreira",
+                                       str_detect(NM_BAIRRO2, ".*Ponta grossa.*") ~ "Ponta Grossa",
+                                       str_detect(NM_BAIRRO2, ".*arthur.*") ~ "Porto Arthur",
+                                       str_detect(NM_BAIRRO2, ".*Praia.*") ~ "Praia Grande",
+                                       str_detect(NM_BAIRRO2, ".*Pratinha.*") ~ "Pratinha",
+                                       str_detect(NM_BAIRRO2, ".*Reduto.*") ~ "Reduto",
+                                       str_detect(NM_BAIRRO2, ".*Sacra.*") ~ "Sacramenta",
+                                       str_detect(NM_BAIRRO2, ".*o bra.*") ~ "São Bras",
+                                       str_detect(NM_BAIRRO2, ".*o clemente.*") ~ "São Clemente",
+                                       str_detect(NM_BAIRRO2, ".*o francisco.*") ~ "São Francisco",
+                                       str_detect(NM_BAIRRO2, ".*Sao joao.*|.*São joao.*") ~ "São João do Outeiro",
+                                       str_detect(NM_BAIRRO2, ".*Sou.*") ~ "Souza",
+                                       str_detect(NM_BAIRRO2, ".*curij.*") ~ "Sucurijuquara",
+                                       str_detect(NM_BAIRRO2, ".*Tapan.*") ~ "Tapanã",
+                                       str_detect(NM_BAIRRO2, ".*grafo.*") ~ "Telégrafo",
+                                       str_detect(NM_BAIRRO2, ".*Teno.*") ~ "Tenoné",
+                                       str_detect(NM_BAIRRO2, ".*Umar.*") ~ "Umarizal",
+                                       str_detect(NM_BAIRRO2, ".*Una.*") ~ "Una",
+                                       str_detect(NM_BAIRRO2, ".*Uni.*") ~ "Universitário",
+                                       str_detect(NM_BAIRRO2, ".*Val.*") ~ "Val-de-Cães",
+                                       str_detect(NM_BAIRRO2, ".*Vila.*") ~ "Vila",
+                                       str_detect(NM_BAIRRO2, ".*Mosqueiro.*|.*Rural mos.*") ~ "Ilha de Mosqueiro",
+                                       str_detect(NM_BAIRRO2, ".*Jararaquinha.*") ~ "Ilha Jararaquinha",
+                                       str_detect(NM_BAIRRO2, ".*Outeiro.*|.*Rural de out.*") ~ "Ilha de Caratateua",
+                                       str_detect(NM_BAIRRO2, ".*Tatu.*") ~ "Ilha Tatuóca",
+                                       str_detect(NM_BAIRRO2, ".*Maruim.*") ~ "Ilha do Maruim I",
+                                       str_detect(NM_BAIRRO2, ".*Cunha.*") ~ "Ilha Paulo da Cunha",
+                                       str_detect(NM_BAIRRO2, ".*Cintura.*") ~ "Ilha do Cintura",
+                                       str_detect(NM_BAIRRO2, ".*SD3.*") ~ "Ilha SD3",
+                                       str_detect(NM_BAIRRO2, ".*do papa.*") ~ "Ilha do Papagaio",
+                                       str_detect(NM_BAIRRO2, ".*dos papa.*") ~ "Ilha dos Papagaios",
+                                       str_detect(NM_BAIRRO2, ".*Ilha nova.*") ~ "Ilha Nova",
+                                       str_detect(NM_BAIRRO2, ".*Pombas.*") ~ "Ilha das Pombas",
+                                       str_detect(NM_BAIRRO2, ".*Ilha negra.*") ~ "Ilha Negra",
+                                       str_detect(NM_BAIRRO2, ".*Ilha coroinha.*") ~ "Ilha Coroinha",
+                                       str_detect(NM_BAIRRO2, ".*Ilha jutuba.*") ~ "Ilha Jutuba",
+                                       str_detect(NM_BAIRRO2, ".*Ilha de cunu.*") ~ "Ilha de Cunuari",
+                                       str_detect(NM_BAIRRO2, ".*Ilha guaribas.*") ~ "Ilha Guaribas",
+                                       str_detect(NM_BAIRRO2, ".*SD8.*") ~ "Ilha SD8",
+                                       str_detect(NM_BAIRRO2, ".*Ilha do meio.*") ~ "Ilha do Meio",
+                                       str_detect(NM_BAIRRO2, ".*Ilha longa.*") ~ "Ilha Longa",
+                                       str_detect(NM_BAIRRO2, ".*Ilha do comb.*") ~ "Ilha do Combu",
+                                       str_detect(NM_BAIRRO2, ".*SD6.*") ~ "Ilha SD6",
+                                       str_detect(NM_BAIRRO2, ".*Ilha do murutura.*") ~ "Ilha do Murutura",
+                                       str_detect(NM_BAIRRO2, ".*Ilha santa cruz.*") ~ "Ilha Santa Cruz",
+                                       str_detect(NM_BAIRRO2, ".*Ilha do cruz.*") ~ "Ilha do Cruzador",
+                                       str_detect(NM_BAIRRO2, ".*Ilha do maruim II.*") ~ "Ilha do Maruim II",
+                                       str_detect(NM_BAIRRO2, ".*SD5.*") ~ "Ilha SD5",
+                                       str_detect(NM_BAIRRO2, ".*Barra.*") ~ "Ilha da Barra",
+                                       str_detect(NM_BAIRRO2, ".*Paquet.*") ~ "Ilha de Paquetá ou Urubuoca",
+                                       str_detect(NM_BAIRRO2, ".*Pato.*") ~ "Ilha dos Patos",
+                                       str_detect(NM_BAIRRO2, ".*Pedro.*") ~ "Ilha São Pedro",
+                                       str_detect(NM_BAIRRO2, ".*Ilha do maracuj.*") ~ "Ilha do Maracujá",
+                                       str_detect(NM_BAIRRO2, ".*Ilha da concei.*") ~ "Ilha da Conceição",
+                                       str_detect(NM_BAIRRO2, ".*Ilhinha.*") ~ "Ilhinha",
+                                       str_detect(NM_BAIRRO2, ".*Cotij.*") ~ "Ilha de Cotijuba",
+                                       str_detect(NM_BAIRRO2, "Vila mo|Vila nosq|Vila do mos|Vila de|Vila") ~ "Vila",
+                                       TRUE ~ "Nao informado"
+                                     ),"Outra cidade")) |>
+  relocate(NM_BAIRRO3, .before = 34)
+
+# Carregue o arquivo shapefile
+lml_bairros <- readOGR(dsn = "/Users/Ermes/portfolio/posts/post-with-plot/",
+                       layer = "lml_belem_bairro_ilhas_simp")
+
+
+# Faça a união dos dados com o shapefile
+# RENOMEAR COLUNA
+srag2$NM_BAIRRO2 <- NULL
+# Renomeie NM_BAIRRO3 para NM_BAIRRO2 em srag_mapa
+names(srag2)[names(srag2) == "NM_BAIRRO3"] <- "NM_BAIRRO2"
+srag2$casos <- 1
+srag_mapa <- aggregate(casos ~ NM_BAIRRO2, srag2, sum)
+
+srag_mapamerge <- merge(lml_bairros, srag_mapa,
+                           by = "NM_BAIRRO2")
+
+# Agregar todas as CLASSI_FIN
+srag_mapa <- srag2  |>
+  group_by(NM_BAIRRO2,CLASSI_FIN) |> 
+  summarise(contagem = n())  |> 
+  pivot_wider(names_from = CLASSI_FIN,
+              values_from = contagem, values_fill = 0) |> 
+  drop_na(NM_BAIRRO2) |> 
+  select(-4) #remove col NA
+
+
+# Merge
+srag_mapamerge <- merge(lml_bairros, srag_mapa,
+                        by = "NM_BAIRRO2")
+
+
+# Define as cores para a rampa de cores
+# colors <- colorRampPalette(c("white", "red"))(26)
+
+
+
+# Criar mapa control para várias categorias -------------------------------
+
+mapa_srag_c5 <- leaflet(srag_mapamerge) %>%
+  addProviderTiles(providers$CartoDB.Positron)
+
+##
+nm_categoria <- c("SRAG por influenza", "SRAG por outro vírus",
+                  "SRAG por outro agente etiológico",
+                    "SRAG não especificado", "SRAG por COVID-19")
+
+for (i in 1:5) {
+  pal <- colorNumeric("YlOrRd", domain = srag_mapamerge[[as.character(i)]])
+  
+  mapa_srag_c5 <- mapa_srag_c5  |>  
+    addPolygons(
+    fillColor = ~pal(srag_mapamerge[[as.character(i)]]),
+    color = "black", weight = 1, opacity = 1, fillOpacity = 0.7,
+    highlight = highlightOptions(color = "white", weight = 2,
+                                 bringToFront = TRUE),
+    label = ~paste0(NM_BAIRRO2, ": ", srag_mapamerge[[as.character(i)]]),
+    group = nm_categoria[i]) |> 
+    addLegend(
+      position = "bottomleft",
+      pal = pal,
+      values = srag_mapamerge[[as.character(i)]],
+      title = paste(nm_categoria[i]),
+      opacity = 1,
+      group = nm_categoria[i])
+}
+
+##
+mapa_srag_c5 <- mapa_srag_c5  |>  addLayersControl(
+  baseGroups = "CartoDB.Positron",
+  overlayGroups = nm_categoria,
+  options = layersControlOptions(collapsed = FALSE))
+
+mapa_srag_c5
+```

@@ -1,0 +1,9 @@
+---
+title: "Dashboard's"
+categories: [news, code, analysis]
+image: "covid_painel.jpg"
+---
+
+<iframe width="800" height="420" src="https://lookerstudio.google.com/embed/reporting/bf1eb69c-c1ee-47a7-b798-67b5a046e9f0/page/TOVmC" frameborder="0" style="border:0" allowfullscreen target="_self">
+
+</iframe>

@@ -1,0 +1,20 @@
+---
+title: "Ermeson Freitas"
+image: perfil.jpg
+about:
+  template: jolla
+  image-width: 15em
+  image-shape: round
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://linkedin.com/in/ermesonfreitas
+    - icon: github
+      text: Github
+      href: https://github.com/ermesonf/
+    - icon: envelope
+      text: Contato
+      href: mailto:ermeson.freitas@hotmail.com
+---
+
+Sou Cientista de Dados e Especialista em Geotecnologias, trabalho atualmente na Secretaria Municipal de Saúde de Belém/PA. Tenho experiência com conjuntos de dados variados e análises estatísticas para permitir decisões assertivas. Trabalho em ambiente R/Python, construindo visualizações de dados interativas e mapas epidemiológicos.
