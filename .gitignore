@@ -3,4 +3,8 @@
 .RData
 .Ruserdata
 
+styles.css
+loki.scss
+gandal.scss
+
 /.quarto/
