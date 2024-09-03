@@ -5,7 +5,7 @@ title: |
   </span><br>
   Ermeson Freitas
 subtitle: |
-  Cientista de dados e Eng. ambiental.
+  Analista de BI e Engenheiro de Dados.
 image: images/perfil.jpg
 about:
   id: er-exp
@@ -43,7 +43,7 @@ body::before {
  left: 0;
  width: 100%;
  height: 100%;
- background-image: url('/images/amz.png');
+ background-image: url('/images/Zenitsu.jpeg');
  background-size: cover;
  opacity: 0.3; /* Adjust this value to change the transparency of the background image */
  z-index: -1;
@@ -61,17 +61,22 @@ body::before {
 ::: edu-exp
 :::
 
-Atualmente trabalho na Secretaria Municipal de Saúde de Belém/PA. Tenho experiência com conjuntos de dados variados e análises estatísticas para permitir decisões assertivas. Trabalho com as linguagens R/Python/SQL e DataViz com Looker Studio/Power BI, construindo visualizações de dados interativas e mapas epidemiológicos.
+Analista de BI e Engenheiro de Dados Analítico com habilidades em R, Python, SQL, e Power BI. Experiência em construir e manter soluções de BI e engenharia de dados, auxiliando em tomada de decisões orientadas a dados qualificados e tecnologias para resolver problemas de negócios. Experiência em gerar fluxos de dados e implementar estratégias de negócios. Especialista em Data Science and Analytics.
 
 :::: {.grid}
 
 ::: {.g-col-12 .g-col-md-7 style="text-align: left;"}
 
-## Educação
+## Formação
+
+-   ***MBA*** **Data Science and Analytics**\
+    *2023-2024*\
+    *Universidade de São Paulo*
 
 -   ***Esp.*** **em Geoprocessamento**\
     *2023-2024*\
     *Universidade Federal Rural da Amazônia*
+    
 
 -   ***M.Sc.*** **em Ciências Ambientais**\
     *2021-2023*\
@@ -85,8 +90,12 @@ Atualmente trabalho na Secretaria Municipal de Saúde de Belém/PA. Tenho experi
 ::: {.g-col-12 .g-col-md-5 style="text-align: left;"}
 ## Experiência
 
+-   ***Grupo Mônaco***\
+    **abr/2024-presente**\
+    *Cargo: Analista de BI*
+    
 -   ***Secretarial Municipal de Saúde***\
     **nov/2021-presente**\
-    *Cargo: Analista de dados*
+    *Cargo: Analista de Dados*
 :::
 ::::
