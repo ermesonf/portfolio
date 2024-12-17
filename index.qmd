@@ -3,7 +3,7 @@ title: |
   <span style="font-size: 35px; color: white;">
   Olá, eu sou
   </span><br>
-  Ermeson Freitas
+  Ermeson Freitas Teste
 subtitle: |
   Analista de BI e Engenheiro de Dados.
 image: images/perfil.jpg
