@@ -7,6 +7,13 @@
     "text": "Este mapa ilustra o acervo fundiário e o desmatamento acumulado desde 2008 até 2022 do município de Santarém-PA."
   },
   {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Dashboard’s",
+    "section": "",
+    "text": "/’Tstes"
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -16,21 +23,21 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": " Olá, eu sou  Ermeson Freitas",
+    "title": " Olá, eu sou  Ermeson Freitas Teste",
     "section": "",
     "text": "Analista de Business Intelligence e Engenheiro de Dados com fluência em análise de dados, relatórios e dashboard e modelagem de dados, usando ferramentas como Power BI, Python, SQL e R. Experiência no uso de API, Web scraping para coleta de dados e armazenamento com PostgreSQL e Oracle. Proativo e orientado a resultados, com habilidades em estatística e storytelling para gerar insights acionáveis e melhorar a tomada de decisões estratégicas. Experiência em desenvolvimento de soluções para otimizar processos e reduzir custos, incluindo automação e anál"
   },
   {
     "objectID": "index.html#formação",
     "href": "index.html#formação",
-    "title": " Olá, eu sou  Ermeson Freitas",
+    "title": " Olá, eu sou  Ermeson Freitas Teste",
     "section": "Formação",
     "text": "Formação\n\nMBA Data Science and Analytics\n2023-2024\nUniversidade de São Paulo\nEsp. em Geoprocessamento\n2023-2024\nUniversidade Federal Rural da Amazônia\nM.Sc. em Ciências Ambientais\n2021-2023\nUniversidade Federal do Pará\nGrad. em Eng. Ambiental\n2015-2019\nUniversidade do Estado do Pará"
   },
   {
     "objectID": "index.html#experiência",
     "href": "index.html#experiência",
-    "title": " Olá, eu sou  Ermeson Freitas",
+    "title": " Olá, eu sou  Ermeson Freitas Teste",
     "section": "Experiência",
     "text": "Experiência\n\nGrupo Mônaco\nabr/2024-presente\nCargo: Analista de BI\nSecretarial Municipal de Saúde\nnov/2021-dez/2024\nCargo: Analista de Dados"
   },
@@ -47,12 +54,5 @@
     "title": " Portfolio ",
     "section": "",
     "text": "Dashboard’s\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGráficos\n\n\n\ncode\n\n\nanalysis\n\n\nplot\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMapas\n\n\n\nGIS\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNenhum item correspondente"
-  },
-  {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Dashboard’s",
-    "section": "",
-    "text": "/’Tstes"
   }
 ]
