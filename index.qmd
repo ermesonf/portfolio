@@ -3,7 +3,7 @@ title: |
   <span style="font-size: 35px; color: white;">
   Olá, eu sou
   </span><br>
-  Ermeson Freitas Teste
+  Ermeson Freitas
 subtitle: |
   Analista de BI e Engenheiro de Dados.
 image: images/perfil.jpg
@@ -62,7 +62,7 @@ body::before {
 ::: edu-exp
 :::
 
-Analista de Business Intelligence e Engenheiro de Dados com fluência em análise de dados, relatórios e dashboard e modelagem de dados, usando ferramentas como Power BI, Python, SQL e R. Experiência no uso de API, Web scraping para coleta de dados e armazenamento com PostgreSQL e Oracle. Proativo e orientado a resultados, com habilidades em estatística e storytelling para gerar insights acionáveis e melhorar a tomada de decisões estratégicas. Experiência em desenvolvimento de soluções para otimizar processos e reduzir custos, incluindo automação e anál
+Analista de Business Intelligence e Engenheiro de Dados com fluência em análise de dados, relatórios e dashboard e modelagem de dados, usando ferramentas como Power BI, Python, SQL e R. Experiência no uso de API, Web scraping para coleta de dados e armazenamento com PostgreSQL e Oracle. Proativo e orientado a resultados, com habilidades em estatística e storytelling para gerar insights acionáveis e melhorar a tomada de decisões estratégicas. Experiência em desenvolvimento de soluções para otimizar processos e reduzir custos, incluindo automação e análises preditivas.
 
 ::: grid
 ::: {.g-col-12 .g-col-md-7 style="text-align: left;"}
@@ -90,7 +90,7 @@ Analista de Business Intelligence e Engenheiro de Dados com fluência em anális
 
 -   ***Grupo Mônaco***\
     **abr/2024-presente**\
-    *Cargo: Analista de BI*
+    *Cargo: Analista de Business Intelligence*
 
 -   ***Secretarial Municipal de Saúde***\
     **nov/2021-dez/2024**\
